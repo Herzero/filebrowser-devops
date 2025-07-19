@@ -44,7 +44,7 @@ pipeline {
                     echo "Waiting for container to start..."
                     sleep 5
                     sh '''
-                    if curl --fail http://filebrowser:80; then
+                    if curl --fail http://localhost:80; then
                         echo "FileBrowser is corriendo"
                     else
                         echo "FileBrowser no responde" && exit 1
