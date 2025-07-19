@@ -38,22 +38,23 @@ pipeline {
             }
         }
 
-        stage('Test Container') {
-            steps {
-                script {
-                    echo "Waiting for container to start..."
-                    sleep 5
-                    sh '''
-                    if curl --fail http://localhost:80; then
-                        echo "FileBrowser is corriendo"
-                    else
-                        echo "FileBrowser no responde" && exit 1
-                    fi
-                    '''
-                }
-            }
+       stage('Test Container') {
+    steps {
+        script {
+            echo "Waiting for container to start..."
+            sleep 5
+            sh '''
+            CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' filebrowser)
+            echo "Probing container at $CONTAINER_IP:80..."
+            if curl --fail http://$CONTAINER_IP:80; then
+                echo "FileBrowser está corriendo correctamente."
+            else
+                echo "FileBrowser no responde." && exit 1
+            fi
+            '''
         }
-
+    }
+}
         stage('Push a DockerHub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: env.DOCKERHUB_CREDENTIALS_ID,
