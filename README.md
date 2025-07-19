@@ -86,5 +86,5 @@ Este proyecto se entrega como parte de los desafios solicitados en el Bootcamp d
 
 ✍️ Autor
 Hernán Taboada
-💼 Desarrollado para la carrera de DevOps
+💼 Desarrollado para el Bootcamp de DevOps de EducacionIT
 📅 Año: 2025
