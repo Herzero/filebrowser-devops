@@ -45,7 +45,7 @@ Acceder desde el navegador:
 ```bash
 Editar
 git clone https://github.com/tu_usuario/filebrowser-devops.git
-cd filebrowser-pipeline
+cd filebrowser-devops
 ```
 
 2. Crear un nuevo pipeline en Jenkins
@@ -58,7 +58,7 @@ Branch: main
 3. Agregar credencial de DockerHub (si no está)
 Tipo: Username + Password
 
-ID sugerido: dockerhub
+ID sugerido: dockerhub_id
 
 Usuario: tu usuario de DockerHub
 
