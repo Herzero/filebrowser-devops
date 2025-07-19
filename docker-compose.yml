@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  filebrowser:
+    image: murasame11/filebrowser:1.0.0
+    container_name: filebrowser
+    ports:
+      - "80:80"
+    volumes:
+      - ./data:/srv
+      - ./filebrowser.db:/database/filebrowser.db
+      - ./config:/config
+    
